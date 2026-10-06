@@ -1,3 +1,17 @@
+---
+pipeline_tag: text-classification
+library_name: transformers
+language:
+- ar
+- en
+tags:
+- semantic-integrity
+- quran-translation
+- multilingual
+endpoints-template:
+- task: custom
+---
+
 # Model Card — AMANAH Semantic Integrity v0.2
 
 ## Model identifier

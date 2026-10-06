@@ -1,0 +1,31 @@
+# Local secrets
+.env
+.env.*
+!.env.example
+
+# Runtime/generated data
+data/private/
+data/reference_store.json
+checkpoints/
+artifacts/
+cache/
+
+# Model artifacts
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+dist/
+build/
+*.egg-info/
+
+# Notebook/editor
+.ipynb_checkpoints/
+.vscode/
+.idea/
