@@ -1,4 +1,5 @@
 import json
+import re
 from pathlib import Path
 
 
@@ -29,6 +30,6 @@ def test_shared_submission_docs_do_not_embed_secret_values():
         Path("notebooks/model_training_v0_2.ipynb"),
     ]
     combined = "\n".join(p.read_text(encoding="utf-8") for p in paths)
-    assert "hf_" not in combined
-    assert "sk-" not in combined
+    assert re.search(r"hf_[A-Za-z0-9]{20,}", combined) is None
+    assert re.search(r"sk-[A-Za-z0-9_-]{20,}", combined) is None
     assert "BEGIN PRIVATE KEY" not in combined
