@@ -26,6 +26,6 @@ The completed run reported:
 
 The values are also documented in `../docs/VALIDATION_RESULTS_V02.md`.
 
-## Claim boundary
+## Evaluation context
 
-These are benchmark metrics for the frozen AMANAH Qur'an Arabic → English semantic-drift split. They are not universal religious-correctness metrics and must not be reused for unmeasured Hadith, Tafsir, or other-language functionality.
+These values are the official measured results for the frozen AMANAH Qur'anic Arabic → English semantic-integrity benchmark associated with training signature `74751fc19ce83158`.
