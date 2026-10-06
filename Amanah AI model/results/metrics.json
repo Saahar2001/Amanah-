@@ -1,0 +1,36 @@
+{
+  "model_version": "amanah-semantic-integrity-v0.2",
+  "training_signature": "74751fc19ce83158",
+  "dataset": {
+    "canonical_ayat": 6236,
+    "total_samples": 32621,
+    "train": 25986,
+    "validation": 3312,
+    "test": 3323
+  },
+  "evaluation": {
+    "test_rows": 3323,
+    "scored_rows": 3274,
+    "overlength_abstentions": 49,
+    "coverage": 0.985254,
+    "abstention_rate": 0.014746,
+    "critical_coverage": 0.979769,
+    "macro_f1": 0.952615,
+    "severity_macro_f1": 0.969372,
+    "critical_drift_recall": 0.969518,
+    "false_safe_rate": 0.029499
+  },
+  "per_label_f1": {
+    "FAITHFUL": 0.972373,
+    "NEGATION_FLIP": 0.954689,
+    "OMISSION": 0.972569,
+    "MODALITY_SHIFT": 0.963351,
+    "QUANTIFIER_CHANGE": 0.963821,
+    "CONDITION_LOSS": 0.888889
+  },
+  "acceptance": {
+    "black_box": "PASS",
+    "representative_labels": "6/6",
+    "live_release_gates": "PASS"
+  }
+}

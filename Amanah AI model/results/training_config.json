@@ -1,0 +1,22 @@
+{
+  "model_version": "amanah-semantic-integrity-v0.2",
+  "training_signature": "74751fc19ce83158",
+  "base_model": "MoritzLaurer/mDeBERTa-v3-base-mnli-xnli",
+  "seed": 42,
+  "target_epochs": 5,
+  "last_completed_epoch": 4,
+  "early_stopping": true,
+  "batch_size": 4,
+  "gradient_accumulation": 4,
+  "learning_rate": 0.00002,
+  "max_length": 512,
+  "best_validation_loss": 0.1448546965718427,
+  "measured_labels": [
+    "FAITHFUL",
+    "NEGATION_FLIP",
+    "OMISSION",
+    "MODALITY_SHIFT",
+    "QUANTIFIER_CHANGE",
+    "CONDITION_LOSS"
+  ]
+}

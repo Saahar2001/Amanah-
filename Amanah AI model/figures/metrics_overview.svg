@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="450" viewBox="0 0 1100 450">
+<rect width="1100" height="450" fill="white"/>
+<text x="550" y="38" font-family="Arial, sans-serif" font-size="26" font-weight="700" text-anchor="middle" fill="#111827">AMANAH v0.2 — Held-out Evaluation</text>
+<g font-family="Arial, sans-serif">
+<text x="260" y="90" font-size="17" text-anchor="end" fill="#374151">Macro F1</text><rect x="285" y="70" width="666.8" height="28" rx="5" fill="#1f4b99"/><text x="965" y="91" font-size="17" fill="#111827">95.26%</text>
+<text x="260" y="150" font-size="17" text-anchor="end" fill="#374151">Severity Macro F1</text><rect x="285" y="130" width="678.6" height="28" rx="5" fill="#1f4b99"/><text x="977" y="151" font-size="17" fill="#111827">96.94%</text>
+<text x="260" y="210" font-size="17" text-anchor="end" fill="#374151">Critical Drift Recall</text><rect x="285" y="190" width="678.7" height="28" rx="5" fill="#1f4b99"/><text x="977" y="211" font-size="17" fill="#111827">96.95%</text>
+<text x="260" y="270" font-size="17" text-anchor="end" fill="#374151">Coverage</text><rect x="285" y="250" width="689.7" height="28" rx="5" fill="#1f4b99"/><text x="988" y="271" font-size="17" fill="#111827">98.53%</text>
+<text x="260" y="330" font-size="17" text-anchor="end" fill="#374151">Critical Coverage</text><rect x="285" y="310" width="685.8" height="28" rx="5" fill="#1f4b99"/><text x="984" y="331" font-size="17" fill="#111827">97.98%</text>
+<text x="260" y="390" font-size="17" text-anchor="end" fill="#374151">False Safe Rate</text><rect x="285" y="370" width="20.6" height="28" rx="5" fill="#9ca3af"/><text x="319" y="391" font-size="17" fill="#111827">2.95% (lower is better)</text>
+</g>
+</svg>
