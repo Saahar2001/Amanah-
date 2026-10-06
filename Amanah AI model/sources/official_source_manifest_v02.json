@@ -1,0 +1,56 @@
+{
+  "generated_at": "2026-10-04",
+  "policy": "Use the challenge scientific bundle first whenever it specifies an approved source. External sources below are trusted technical sources, but external trust does not by itself make them challenge-approved.",
+  "sources": [
+    {
+      "id": "quran_ar_kfgqpc_hafs",
+      "role": "canonical_quran_arabic",
+      "provider": "King Fahd Glorious Qur'an Printing Complex",
+      "official_page": "https://qurancomplex.gov.sa/en/techquran/dev/",
+      "download": "https://download.qurancomplex.gov.sa/resources_dev/UthmanicHafs_v2-0.zip",
+      "format": [
+        "JSON",
+        "CSV",
+        "XML",
+        "SQL",
+        "TXT",
+        "XLSX"
+      ],
+      "version": "13.0 listed on official developer page",
+      "sha1": "36EA5AB0D7EA1702F17FF43F9B50924CCCD77EBF",
+      "usage": "Canonical Arabic text; keep unmodified."
+    },
+    {
+      "id": "quran_translation_quranenc",
+      "role": "english_reference_translations",
+      "provider": "QuranEnc",
+      "docs": "https://quranenc.com/en/home/api/",
+      "list_endpoint": "https://quranenc.com/api/v1/translations/list/en?localization=en",
+      "ayah_endpoint_template": "https://quranenc.com/api/v1/translation/aya/{translation_key}/{sura}/{aya}",
+      "usage": "Reference envelope only; store translation key, version, retrieval date and source URL."
+    },
+    {
+      "id": "hadith_dorar",
+      "role": "hadith_retrieval_and_grade",
+      "provider": "Dorar Al-Sunniah",
+      "docs": "https://dorar.net/article/389",
+      "endpoint_template": "https://dorar.net/dorar_api.json?skey={query}",
+      "usage": "Retrieval only. Never approve a hadith unless source, muhaddith grading and traceable link are present."
+    },
+    {
+      "id": "tafsir_kfgqpc_muyassar",
+      "role": "tafsir_dataset",
+      "provider": "King Fahd Glorious Qur'an Printing Complex",
+      "official_page": "https://qurancomplex.gov.sa/en/techquran/dev/",
+      "sha1": "5f533113c2f54f32eded734bb49e6a5837965722",
+      "usage": "Trusted official external tafsir dataset. Keep ayah text separate from aya_tafseer. Confirm challenge acceptance if the scientific bundle requires a different tafsir source."
+    },
+    {
+      "id": "tafsir_dorar",
+      "role": "challenge_reference_manual_verification",
+      "provider": "Dorar Al-Sunniah",
+      "url": "https://dorar.net/tafseer",
+      "usage": "The compliance report cites Dorar Tafsir as an accepted reference path. No public documented REST tafsir API was verified; do not scrape silently."
+    }
+  ]
+}
