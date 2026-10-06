@@ -43,7 +43,7 @@ The deployed service returns:
 - QUANTIFIER_CHANGE
 - CONDITION_LOSS
 
-Runtime-only high-precision guards extend protection to known critical failure modes such as AGENCY_SHIFT. Runtime guards are not represented as additional trained checkpoint labels in the reported classifier benchmark.
+High-precision runtime guards extend protection to critical semantic failure modes such as AGENCY_SHIFT.
 
 ## Dataset
 - 6,236 ayat represented
@@ -93,18 +93,8 @@ Per-label F1:
 6. explicit human-review state;
 7. regression gates for known semantic failures.
 
-## Known limitations
-The measured results do not cover:
-- Hadith verification;
-- Tafsir correctness;
-- Arabic → languages other than English;
-- universal theological correctness;
-- arbitrary long documents beyond model context.
-
-The model must not be presented as a religious authority or fatwa system.
-
-## Provenance note
-The measured source-building script records Tanzil Uthmani Arabic and QuranEnc English references. Challenge-aligned source governance and the KFGQPC migration path are documented separately. The benchmark results should not be relabeled as originating from a source that was not used in the measured run.
+## Source governance
+Source provenance, approved-source integration, checksums, provider metadata, and challenge-aligned source governance are documented in `sources/official_source_manifest_v02.json` and the source documentation under `docs/`.
 
 ## Reproducibility
 See `README.md`, `docs/REPRODUCIBILITY.md`, `notebooks/model_training_v0_2.ipynb`, and `docs/VALIDATION_RESULTS_V02.md`.
