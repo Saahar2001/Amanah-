@@ -49,6 +49,17 @@ The challenge repository is intentionally split into two auditable components:
 8. Automated unit, regression, data-quality, and CI tests.
 9. Scientific-source governance documentation for Qur'an, Hadith, Tafsir, and terminology expansion.
 
+## Hugging Face model package
+
+The validated AMANAH model package is published for technical review at:
+
+- **Model repository:** https://huggingface.co/SaharIsmail/semantic-integrity-v0-1
+- **Validated v0.2 revision:** https://huggingface.co/SaharIsmail/semantic-integrity-v0-1/tree/v0.2-validated
+
+Judges can inspect or download the packaged checkpoint and can deploy it under **their own Hugging Face account** for independent testing. No AMANAH team token or secret is required or published. For authenticated Hugging Face API / Inference Endpoint testing, reviewers should use a **personal Hugging Face access token created from their own account**.
+
+See **[Judge Model Quick Start](./Amanah%20AI%20model/docs/JUDGE_MODEL_QUICKSTART.md)** for the exact local and endpoint test procedure.
+
 ## Review paths for judges
 
 For a fast technical review:
