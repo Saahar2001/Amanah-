@@ -35,7 +35,7 @@ The challenge repository is intentionally split into two auditable components:
 | Final black-box acceptance | **PASS** |
 | Live release gates | **PASS** |
 
-> **Metric note:** 95.26% is **Macro F1 on the frozen held-out test split**. It is not presented as universal “accuracy” for all Islamic content, all languages, Hadith, or Tafsir.
+> **Evaluation note:** All reported metrics are measured on the frozen held-out Qur'anic Arabic → English semantic-integrity benchmark.
 
 ## Implemented pipeline
 
@@ -54,7 +54,7 @@ The challenge repository is intentionally split into two auditable components:
 For a fast technical review:
 
 1. **[Model README](./Amanah%20AI%20model/README.md)** — complete technical overview and run instructions.
-2. **[Model Card](./Amanah%20AI%20model/MODEL_CARD.md)** — intended use, metrics, limitations, and safety design.
+2. **[Model Card](./Amanah%20AI%20model/MODEL_CARD.md)** — intended use, metrics, architecture, and safety design.
 3. **[Measured metrics](./Amanah%20AI%20model/results/metrics.json)** — machine-readable benchmark values.
 4. **[Architecture](./Amanah%20AI%20model/docs/ARCHITECTURE.md)** — system components and decision flow.
 5. **[Reproducibility](./Amanah%20AI%20model/docs/REPRODUCIBILITY.md)** — setup, training, evaluation, packaging, and deployment procedure.
@@ -70,7 +70,7 @@ No production access tokens, API keys, passwords, or secret values are committed
 
 ## Reproducibility
 
-Start with **[Amanah AI model/README.md](./Amanah%20AI%20model/README.md)**. It documents the model design, data pipeline, training configuration, exact evaluation metrics, release gates, API request/response contract, local execution, deployment flow, current source provenance, and limitations.
+Start with **[Amanah AI model/README.md](./Amanah%20AI%20model/README.md)**. It documents the model design, data pipeline, training configuration, exact evaluation metrics, release gates, API request/response contract, local execution, deployment flow, source provenance, and validation evidence.
 
 ---
 
