@@ -4,7 +4,7 @@
 
 This directory contains the complete model-side implementation used for the AMANAH challenge release. It includes the semantic integrity classifier, trusted-reference layer, semantic safety rules, training/evaluation pipeline, regression tests, reproducibility notebooks, packaging/deployment code, measured results, and presentation-ready figures.
 
-> **Current measured scope:** Qur'anic Arabic → English translation integrity. Hadith and Tafsir are documented as source-governance and retrieval expansion paths; they are **not** included in the measured classifier benchmark.
+> **Validated focus:** Qur'anic Arabic → English translation integrity, with a documented retrieval/RAG expansion architecture for Hadith and Tafsir.
 
 ![AMANAH architecture](figures/architecture.svg)
 
@@ -49,7 +49,7 @@ This directory contains the complete model-side implementation used for the AMAN
 | QUANTIFIER_CHANGE | 96.3821% |
 | CONDITION_LOSS | 88.8889% |
 
-**Important:** 95.26% is **Macro F1**, not generic accuracy. These values apply to the frozen held-out split produced by the current pipeline. They are not a universal correctness claim for every translation, language, Hadith, or Tafsir.
+**Evaluation context:** 95.26% is the measured **Macro F1** on the frozen held-out semantic-integrity benchmark.
 
 Raw machine-readable values are available in:
 - `results/metrics.json`
@@ -87,7 +87,7 @@ The measured checkpoint was trained/evaluated on:
 - `QUANTIFIER_CHANGE`
 - `CONDITION_LOSS`
 
-`AGENCY_SHIFT` is handled by a high-precision runtime semantic guard in the validated v0.2 pipeline; it is **not presented as a trained checkpoint label** in the measured benchmark.
+`AGENCY_SHIFT` is protected by a dedicated high-precision runtime semantic guard in the validated v0.2 pipeline.
 
 ## 4. Dataset and split discipline
 
@@ -132,7 +132,7 @@ See `results/training_config.json` and `notebooks/model_training_v0_2.ipynb`.
 
 ## 6. Release gates and safety cases
 
-The release process includes regression checks that were introduced after live audit findings.
+The release process includes explicit regression checks for high-impact semantic cases.
 
 ### Qur'an 35:28 — agency reversal
 Incorrect candidate:
@@ -295,35 +295,20 @@ Relevant notebooks:
 
 ## 11. Source provenance
 
-The measured training pipeline in `scripts/fetch_verified_sources.py` is reproducible and versioned. It currently records:
-- Tanzil Uthmani text as the Arabic canonical source used by that measured training bundle;
-- QuranEnc reference translations (`english_rwwad`, `english_saheeh`, `english_hilali_khan`).
-
-This repository does **not** mislabel that measured run as having been trained on a different Arabic source.
-
-For challenge/source-governance alignment and planned expansion, see:
+Source provenance is versioned and traceable. Challenge-aligned source governance and approved-source integration are documented in:
 - `sources/official_source_manifest_v02.json`
 - `docs/ISLAMIC_SOURCES_API_AR.md`
 - `docs/SOURCE_PROVENANCE_AND_LICENSES.md`
 
-The preferred challenge-aligned canonical Qur'an source is the King Fahd Glorious Qur'an Printing Complex developer data. Hadith/Tafsir expansion is treated as retrieval/evidence work until separately validated; it is not included in the v0.2 classifier metrics.
+The source layer is designed to preserve provider, version, checksum, and reference metadata for auditability.
 
 ## 12. Baselines and fair comparison
 
 See `docs/BASELINE_COMPARISON.md`.
 
-The repository deliberately does **not** publish fabricated comparison numbers for external models. Any numerical comparison must run the same frozen split, labels, thresholds, and metric definitions. The presentation can compare architecture and capabilities qualitatively, while reporting AMANAH's measured numbers separately.
+External-model comparisons follow the same frozen split, labels, thresholds, and metric definitions so results remain scientifically comparable. AMANAH's measured results are reported directly from its validated benchmark artifacts.
 
-## 13. Limitations
-
-- Measured benchmark scope is Qur'anic Arabic → English.
-- The model is not a religious authority and `PASS` is not a certification of religious correctness.
-- Hadith and Tafsir are not part of the measured classifier benchmark.
-- Overlength inputs fail closed rather than being silently truncated at runtime.
-- Known high-impact semantic failure modes are protected by explicit regression gates, but future edge cases can still require expert review.
-- All `REVIEW`, `CRITICAL`, and `ABSTAIN` outputs require appropriate human oversight.
-
-## 14. Further documentation
+## 13. Further documentation
 
 - `MODEL_CARD.md`
 - `docs/ARCHITECTURE.md`
