@@ -41,7 +41,7 @@ Ayah ID + Arabic source + candidate English
 
 `amanah_engine/classifier.py` loads the packaged checkpoint, calibrated thresholds, model metadata, tokenizer, and severity head. It supports both single-item and batched inference.
 
-At runtime, the adapter pre-checks token length. Overlength inputs do not silently truncate; they are returned as unavailable so the service can fail closed.
+At runtime, the adapter pre-checks token length and routes inputs beyond the model context to the safe review path, preventing silent truncation.
 
 ## Reference layer
 
