@@ -17,6 +17,20 @@ export interface AmanahResult {
   notes: string[];
 }
 
+function unavailableResult(note: string): AmanahResult {
+  return {
+    decision: "ABSTAIN",
+    integrity_score: 0,
+    severity: "S0",
+    confidence: 0,
+    drifts: [],
+    needs_human_review: true,
+    model_version: "unavailable",
+    reference_status: "unavailable",
+    notes: [note],
+  };
+}
+
 export async function analyzeWithAmanah(
   input: AmanahInput,
   env: { AMANAH_ML_URL: string; AMANAH_ML_TOKEN: string }
@@ -25,19 +39,27 @@ export async function analyzeWithAmanah(
     throw new Error("AMANAH server-side configuration is missing.");
   }
 
-  const response = await fetch(env.AMANAH_ML_URL, {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-      authorization: `Bearer ${env.AMANAH_ML_TOKEN}`,
-      "X-Scale-Up-Timeout": "600",
-    },
-    body: JSON.stringify({ inputs: input }),
-  });
+  try {
+    const response = await fetch(env.AMANAH_ML_URL, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${env.AMANAH_ML_TOKEN}`,
+        "X-Scale-Up-Timeout": "600",
+      },
+      body: JSON.stringify({ inputs: input }),
+    });
 
-  if (!response.ok) {
-    throw new Error(`AMANAH endpoint failed with HTTP ${response.status}`);
+    if (!response.ok) {
+      return unavailableResult(
+        `ML endpoint unavailable (HTTP ${response.status}); human review required.`
+      );
+    }
+
+    return (await response.json()) as AmanahResult;
+  } catch (error) {
+    return unavailableResult(
+      `ML endpoint unavailable; human review required. ${String(error)}`
+    );
   }
-
-  return (await response.json()) as AmanahResult;
 }
