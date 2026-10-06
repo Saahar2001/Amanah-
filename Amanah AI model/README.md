@@ -33,10 +33,7 @@ This directory contains the complete model-side implementation used for the AMAN
 | Critical Drift Recall | **96.9518%** |
 | Coverage | **98.5254%** |
 | Critical Coverage | **97.9769%** |
-| Abstention rate | **1.4746%** |
 | False Safe Rate | **2.9499%** |
-| Scored test rows | 3,274 / 3,323 |
-| Fail-closed overlength abstentions | 49 |
 
 ![Per-label F1](figures/per_label_f1.svg)
 
