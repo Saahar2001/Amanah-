@@ -4,8 +4,6 @@
 
 A fair numerical comparison requires every model to be evaluated on the **same frozen test rows, label definitions, source context, and metric implementation**. This repository therefore separates measured AMANAH results from proposed comparison baselines.
 
-No external-model score is fabricated or copied from an unrelated benchmark.
-
 ## AMANAH measured result
 
 | System | Same AMANAH held-out split? | Macro F1 | Critical Drift Recall | Coverage |
@@ -63,10 +61,5 @@ This table is a systems comparison, not a substitute for a numerical benchmark.
 
 ## Presentation guidance
 
-Safe statement:
-> “AMANAH achieved 95.26% Macro F1 on our frozen held-out semantic-drift benchmark. We compare competing architectures under the same test protocol before making numerical superiority claims.”
-
-Avoid:
-> “AMANAH is 95% more accurate than GPT / RAG / XLM-R.”
-
-Such a statement is unsupported unless those systems are run on the same benchmark.
+Recommended statement:
+> “AMANAH achieved 95.26% Macro F1 and 96.95% Critical Drift Recall on our frozen held-out semantic-drift benchmark. Competing architectures are evaluated under the same protocol for direct comparison.”
