@@ -63,7 +63,6 @@ High-precision runtime guards extend protection to critical semantic failure mod
 - Coverage: 98.5254%
 - Critical Coverage: 97.9769%
 - False Safe Rate: 2.9499%
-- Abstention Rate: 1.4746%
 
 Per-label F1:
 - FAITHFUL: 97.2373%
