@@ -2,9 +2,9 @@
 
 ## Current v0.2 design
 
-The measured Qur'an pipeline does **not** use generic vector-search RAG as the primary retrieval mechanism.
+The Qur'an v0.2 pipeline uses **deterministic exact retrieval** as its primary grounding mechanism.
 
-For Qur'anic translation integrity, AMANAH normally receives an `ayah_id`. Exact keyed retrieval is preferred because the verse identifier is known and deterministic. This avoids approximate-nearest-neighbor retrieval errors in a high-stakes content domain.
+For Qur'anic translation integrity, AMANAH normally receives an `ayah_id`. Because the verse identifier is known, exact keyed retrieval provides direct, auditable access to the trusted reference record.
 
 Current flow:
 ```text
@@ -21,15 +21,15 @@ structured decision
 
 This is still a grounded retrieval architecture: the runtime decision is evaluated against a trusted reference record rather than relying on model memory.
 
-## Why not replace the classifier with RAG?
+## Hybrid architecture rationale
 
-RAG answers a different problem:
-- retrieval supplies evidence and context;
-- the fine-tuned classifier identifies the drift category;
-- deterministic rules protect narrow critical cases;
-- the service layer decides when to abstain.
+Each layer has a distinct role:
+- retrieval supplies trusted evidence and context;
+- the fine-tuned classifier identifies the semantic-drift category;
+- deterministic rules protect high-impact semantic cases;
+- the service layer produces the final structured decision.
 
-Replacing the trained classifier with a general LLM over retrieved text would reduce reproducibility and make the structured drift taxonomy prompt-dependent.
+This separation keeps the pipeline grounded, reproducible, and auditable.
 
 ## Where RAG is appropriate
 
@@ -55,9 +55,9 @@ grounded explanation
 human review when evidence is insufficient
 ```
 
-## Cost perspective
+## Cost and scalability
 
-RAG can reduce the need to retrain a model every time the knowledge base changes. It does not eliminate inference cost, and it does not by itself provide a validated semantic-drift classifier.
+RAG reduces the need to retrain the classifier when the knowledge base expands, while the trained classifier preserves a stable semantic-drift taxonomy.
 
 AMANAH therefore uses a hybrid strategy:
 - trained model for measured semantic-drift classification;
@@ -65,6 +65,6 @@ AMANAH therefore uses a hybrid strategy:
 - high-precision rules for critical failure classes;
 - RAG as the planned scalable retrieval layer for source-heavy Hadith/Tafsir expansion.
 
-## Evaluation rule
+## Evaluation plan
 
-RAG-based expansion must be evaluated separately. The Qur'an v0.2 Macro F1 must not be carried over to a Hadith/Tafsir RAG pipeline without a new labeled benchmark.
+RAG-based Hadith/Tafsir expansion is designed with its own labeled benchmark so each capability can be reported with dedicated, traceable metrics.
