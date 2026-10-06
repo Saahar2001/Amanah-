@@ -18,6 +18,10 @@ def test_training_notebook_contains_reproducible_v02_pipeline():
     assert "FINAL_ACCEPTANCE_REPORT.json" in text
     assert "TRAINING_SIGNATURE" in text
     assert "semantic_integrity_model_cache" in text
+    assert "REPOSITORY_ID = 1407563428" in text
+    assert 'default_branch = "main"' in text
+    assert 'project_root = workspace / "Amanah AI model"' in text
+    assert "os.chdir(project_root)" in text
     assert "YOUR_REPO_URL" not in text
 
 
