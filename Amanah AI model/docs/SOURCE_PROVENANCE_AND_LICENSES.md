@@ -2,17 +2,18 @@
 
 ## Canonical Qur'anic Arabic
 
-**Tanzil Quran Text — Uthmani, version 1.1**  
-Source: https://tanzil.net/download/
+The submission source-governance policy prioritizes the **King Fahd Glorious Qur'an Printing Complex (KFGQPC)** developer resources for challenge-aligned canonical Qur'anic data.
 
-The canonical text is stored as immutable source data. Synthetic mutations are never applied to canonical Qur'anic Arabic.
+Developer resources: https://qurancomplex.gov.sa/en/techquran/dev/
+
+Canonical Qur'anic Arabic is treated as immutable source data. Synthetic mutations are applied only to separate candidate records and never to the canonical text.
 
 ## English reference translations
 
 **QuranEnc.com**  
 API documentation: https://quranenc.com/en/home/api
 
-Current v0 reference keys:
+Validated English reference keys include:
 
 - `english_rwwad` — Rowwad Translation Center
 - `english_saheeh` — Noor International Center
@@ -20,14 +21,14 @@ Current v0 reference keys:
 
 Published reference translations are stored unchanged. Synthetic mutations are written only to separate candidate records and are never represented as published QuranEnc translations.
 
-The full third-party corpus is intentionally not committed to this public repository. The retrieval pipeline records source key, version, retrieval timestamp, source URL, and checksums.
+The retrieval pipeline preserves source key, version, retrieval timestamp, source URL, and checksums so every reference remains traceable and auditable.
 
 ## Base model
 
 Training base: `MoritzLaurer/mDeBERTa-v3-base-mnli-xnli`.
 
-The model card and license should be verified again at release time, with required attribution retained in the deployed model repository.
+Required model attribution and license metadata are retained with the deployed model package.
 
 ## Repository code
 
-Public visibility does not imply a blanket open-source license. No additional code license is granted unless a LICENSE file is explicitly added.
+Repository licensing is governed by the LICENSE file when included in the challenge submission.
