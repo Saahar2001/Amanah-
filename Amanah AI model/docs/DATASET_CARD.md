@@ -36,4 +36,4 @@ Synthetic data is suitable for supervised training and adversarial tests, but th
 
 ## Licensing and redistribution
 
-The repository does not bundle a full third-party corpus. Download source material only under its provider terms and preserve version/source attribution. Do not publish transformed third-party data until redistribution rights for the derived dataset have been reviewed.
+Source material is retrieved reproducibly from its providers under their terms, with version and source attribution preserved throughout the data pipeline.
