@@ -223,7 +223,29 @@ uvicorn api.main:app --host 0.0.0.0 --port 8000
 
 The exact local model path/configuration is described in `docs/REPRODUCIBILITY.md`.
 
-## 9. API contract
+## 9. Judge / reviewer model access
+
+The packaged AMANAH v0.2 model is available on Hugging Face:
+
+- **Model repository:** https://huggingface.co/SaharIsmail/semantic-integrity-v0-1
+- **Validated revision:** https://huggingface.co/SaharIsmail/semantic-integrity-v0-1/tree/v0.2-validated
+- **Revision name:** `v0.2-validated`
+
+Reviewers can independently inspect, download, run, or deploy this package. **No team credential is stored in this repository.**
+
+For authenticated Hugging Face testing, each reviewer should create and use a **personal Hugging Face access token from their own Hugging Face account**. The token must never be committed to Git, pasted into source files, or shared with the AMANAH team.
+
+Two supported review paths are documented:
+
+1. **Local reproducibility:** download the validated Hugging Face package and run the FastAPI wrapper from this repository.
+2. **Hugging Face Inference Endpoint:** deploy the validated model revision under the reviewer's own Hugging Face account, then call it with the documented JSON contract.
+
+Exact commands, environment variables, request examples, and expected response fields are in:
+
+- **[docs/JUDGE_MODEL_QUICKSTART.md](docs/JUDGE_MODEL_QUICKSTART.md)**
+- **[docs/API_REFERENCE.md](docs/API_REFERENCE.md)**
+
+## 10. API contract
 
 ### Request
 
@@ -263,7 +285,7 @@ The exact local model path/configuration is described in `docs/REPRODUCIBILITY.m
 
 The web application must treat the structured AMANAH response as authoritative. An LLM may explain the result, but must not overwrite the decision, severity, integrity score, or review state.
 
-## 10. Deployment and secrets
+## 11. Deployment and secrets
 
 The repository contains **no production secrets**.
 
@@ -290,7 +312,7 @@ Relevant notebooks:
 - `notebooks/publish_v0_2_from_drive_cpu.ipynb`
 - `notebooks/update_existing_endpoint_v0_2_validated_cpu.ipynb`
 
-## 11. Source provenance
+## 12. Source provenance
 
 Source provenance is versioned and traceable. Challenge-aligned source governance and approved-source integration are documented in:
 - `sources/official_source_manifest_v02.json`
@@ -299,13 +321,13 @@ Source provenance is versioned and traceable. Challenge-aligned source governanc
 
 The source layer is designed to preserve provider, version, checksum, and reference metadata for auditability.
 
-## 12. Baselines and fair comparison
+## 13. Baselines and fair comparison
 
 See `docs/BASELINE_COMPARISON.md`.
 
 External-model comparisons follow the same frozen split, labels, thresholds, and metric definitions so results remain scientifically comparable. AMANAH's measured results are reported directly from its validated benchmark artifacts.
 
-## 13. Further documentation
+## 14. Further documentation
 
 - `MODEL_CARD.md`
 - `docs/ARCHITECTURE.md`
