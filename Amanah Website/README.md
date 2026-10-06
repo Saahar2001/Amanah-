@@ -99,10 +99,10 @@ AMANAH_ML_URL=<model endpoint URL>
 AMANAH_ML_TOKEN=<server-side token>
 ```
 
-You have two options:
+You have two independent review options:
 
-1. **The team's Hugging Face Inference Endpoint:** ask the team for the endpoint URL and an access token.
-2. **Run the model service yourself:** the [Amanah AI model](https://github.com/Saahar2001/Amanah-/tree/main/Amanah%20AI%20model) folder contains a FastAPI service (`uvicorn api.main:app --port 8000`). It needs the trained model package; see that folder's README and `docs/REPRODUCIBILITY.md`. Then set `AMANAH_ML_URL=http://localhost:8000` (plain `http` is accepted only for `localhost` and `127.0.0.1`).
+1. **Deploy the published AMANAH model under your own Hugging Face account.** The validated package is available at [SaharIsmail/semantic-integrity-v0-1 — v0.2-validated](https://huggingface.co/SaharIsmail/semantic-integrity-v0-1/tree/v0.2-validated). For authenticated endpoint testing, use a **personal Hugging Face access token created from your own account**. The repository intentionally contains no team production token.
+2. **Run the model service locally:** the [Amanah AI model](https://github.com/Saahar2001/Amanah-/tree/main/Amanah%20AI%20model) folder contains the FastAPI service, and the validated model package can be downloaded from Hugging Face. Follow [JUDGE_MODEL_QUICKSTART.md](../Amanah%20AI%20model/docs/JUDGE_MODEL_QUICKSTART.md). Then set `AMANAH_ML_URL=http://localhost:8000` (plain `http` is accepted only for `localhost` and `127.0.0.1`).
 
 Addresses ending in `.endpoints.huggingface.cloud` are called as Hugging Face endpoints; any other address is called as the model's own API at `POST {AMANAH_ML_URL}/v1/analyze`. Set `AMANAH_ML_TRANSPORT` to `hf` or `fastapi` to choose explicitly.
 
