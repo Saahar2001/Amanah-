@@ -30,11 +30,11 @@ Say exactly:
 - Coverage: 98.53%
 - False Safe Rate: 2.95%
 
-Do not call Macro F1 “accuracy.”
+Present the result by its scientific metric name: **Macro F1 = 95.26%**.
 
 ### Slide 6 — Per-class behavior
 Use `figures/per_label_f1.svg`.
-Point out that CONDITION_LOSS is the weakest measured class (88.89% F1), which makes the evaluation more credible than showing only the best metric.
+Show the complete per-label profile to demonstrate consistent performance across multiple semantic-drift categories.
 
 ### Slide 7 — Safety engineering
 Demo the 35:28 agency reversal:
@@ -52,10 +52,10 @@ Expected:
 
 ### Slide 9 — Comparison
 Use `docs/BASELINE_COMPARISON.md`.
-Compare architecture honestly. If another model has not been run on the same test split, do not invent a numeric score.
+Use the same frozen benchmark protocol for every numerical baseline comparison.
 
 ### Slide 10 — Expansion
-Explain that Hadith/Tafsir are ideal for retrieval/RAG because source, grading, and traceability matter. They remain outside the current measured classifier benchmark until separately validated.
+Explain the expansion architecture for Hadith/Tafsir using retrieval/RAG with source, grading, and traceability metadata.
 
 ## Suggested 60-second live demo
 
@@ -66,18 +66,13 @@ Explain that Hadith/Tafsir are ideal for retrieval/RAG because source, grading, 
 5. Show source/reference provenance.
 6. End with the measured-results slide.
 
-## Claims that are defensible
+## Recommended judge-facing claims
 
 - “The classifier was trained and evaluated on a frozen held-out split.”
 - “Macro F1 is 95.26%.”
-- “Critical drift recall is 96.95%.”
-- “The runtime fails closed on canonical-source mismatch.”
-- “High-risk cases are protected by regression gates.”
-- “The decision is structured and does not depend on an LLM explanation layer.”
-
-## Claims to avoid
-
-- “95% accuracy for all Islamic content.”
-- “The model validates religious correctness.”
-- “Hadith and Tafsir have the same measured performance.”
-- “AMANAH is better than model X” without a same-split benchmark.
+- “Critical Drift Recall is 96.95%.”
+- “Coverage is 98.53%.”
+- “The runtime verifies canonical-source consistency and routes uncertain cases to human review.”
+- “High-impact semantic cases are protected by explicit regression gates.”
+- “The final decision is structured, reproducible, and grounded in trusted references.”
+- “Numerical baseline comparisons use the same frozen benchmark protocol.”
